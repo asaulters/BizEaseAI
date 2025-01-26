@@ -23,7 +23,11 @@ const AutomationModal = ({ automation, onClose }) => {
     setPdfLink('');
 
     try {
-      const response = await fetch('http://localhost:5001/api/email/subscribe', {
+      const apiUrl = process.env.NODE_ENV === 'production' 
+        ? 'https://bizeaseai.onrender.com/api/email/subscribe'
+        : 'http://localhost:5001/api/email/subscribe';
+      
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

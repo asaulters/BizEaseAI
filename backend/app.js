@@ -25,7 +25,9 @@ const PORT = process.env.PORT || 5001;
 
 // Middleware
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' ? true : 'http://localhost:3000',
+  origin: process.env.NODE_ENV === 'production' 
+    ? ['https://bizeaseai.onrender.com', 'https://www.bizeaseai.onrender.com']
+    : 'http://localhost:3000',
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']

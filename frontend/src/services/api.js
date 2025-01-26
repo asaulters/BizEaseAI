@@ -1,6 +1,8 @@
 // src/services/api.js
 
-const API_BASE_URL = process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:5001/api';
+const API_BASE_URL = process.env.NODE_ENV === 'production' 
+  ? 'https://bizeaseai.onrender.com/api'
+  : 'http://localhost:5001/api';
 
 // Function to get all categories (job categories, task categories, and automation tasks)
 export const getCategories = async () => {
