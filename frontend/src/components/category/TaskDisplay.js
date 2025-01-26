@@ -38,7 +38,7 @@ const TaskDisplay = ({ category }) => {
         <AutomationModal
           automation={{
             ...selectedAutomation,
-            description: selectedAutomation.full_description || selectedAutomation.description
+            overview: selectedAutomation.full_description || selectedAutomation.description
           }}
           onClose={() => setSelectedAutomation(null)}
         />
