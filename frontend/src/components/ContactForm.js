@@ -48,7 +48,7 @@ const ContactForm = () => {
             {
               "@context": "https://schema.org",
               "@type": "ContactPage",
-              "name": "Contact TaskFlowAI",
+              "name": "Contact BizEaseAI",
               "description": "Contact us to suggest new automation features or provide feedback",
               "mainEntity": {
                 "@type": "ContactPoint",
@@ -150,7 +150,7 @@ const ContactForm = () => {
               role="alert"
               aria-live="assertive"
             >
-              <p>Failed to send message. Please try again or contact us directly at support@taskflowai.com</p>
+              <p>Failed to send message. Please try again or contact us directly at support@bizeaseai.com</p>
             </div>
           )}
         </form>

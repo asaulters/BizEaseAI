@@ -19,7 +19,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-text">
-          © 2024 TaskFlowAI. All rights reserved.
+          © 2024 BizEaseAI. All rights reserved.
         </div>
         <div className="footer-links">
           <Link to="/automation-101" className="footer-link">Automation 101</Link>

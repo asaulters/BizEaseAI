@@ -46,17 +46,17 @@ const LandingPage = () => {
   return (
     <>
       <Helmet>
-        <title>TaskFlowAI - Streamline Your Business with AI Automation Solutions</title>
+        <title>BizEaseAI - Streamline Your Business with AI Automation Solutions</title>
         <meta name="description" content="Discover AI-powered automation solutions tailored to your industry. Streamline workflows, reduce costs, and boost efficiency with our intelligent automation tools." />
-        <meta name="keywords" content="business automation, AI automation, workflow automation, industry automation, business efficiency, TaskFlowAI" />
-        <link rel="canonical" href="https://taskflowai.com" />
+        <meta name="keywords" content="business automation, AI automation, workflow automation, industry automation, business efficiency, BizEaseAI" />
+        <link rel="canonical" href="https://bizeaseai.com" />
         
         {/* Open Graph tags for social sharing */}
-        <meta property="og:title" content="TaskFlowAI - Streamline Your Business with AI Automation" />
+        <meta property="og:title" content="BizEaseAI - Streamline Your Business with AI Automation" />
         <meta property="og:description" content="Discover AI-powered automation solutions tailored to your industry. Streamline workflows, reduce costs, and boost efficiency." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://taskflowai.com" />
-        <meta property="og:image" content="/TaskFlowAI_logo_transparent.png" />
+        <meta property="og:url" content="https://bizeaseai.com" />
+        <meta property="og:image" content="/BEA-white-logo.png" />
         
         {/* Schema.org markup for rich results */}
         <script type="application/ld+json">
@@ -64,7 +64,7 @@ const LandingPage = () => {
             {
               "@context": "https://schema.org",
               "@type": "SoftwareApplication",
-              "name": "TaskFlowAI",
+              "name": "BizEaseAI",
               "applicationCategory": "BusinessApplication",
               "description": "AI-powered automation solutions for streamlining business workflows and improving efficiency",
               "offers": {

@@ -18,11 +18,11 @@ const Automation101 = () => {
               "description": "Comprehensive guide to business automation, covering everything from basic workflows to AI-powered solutions",
               "author": {
                 "@type": "Organization",
-                "name": "TaskFlowAI"
+                "name": "BizEaseAI"
               },
               "publisher": {
                 "@type": "Organization",
-                "name": "TaskFlowAI"
+                "name": "BizEaseAI"
               }
             }
           `}

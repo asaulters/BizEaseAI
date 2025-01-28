@@ -46,7 +46,7 @@ class ErrorBoundary extends React.Component {
 const NotFound = () => (
   <div className="not-found-page">
     <Helmet>
-      <title>404 - Page Not Found | TaskFlowAI</title>
+      <title>404 - Page Not Found | BizEaseAI</title>
       <meta name="robots" content="noindex, follow" />
     </Helmet>
     <h1>Page Not Found</h1>
