@@ -1,9 +1,15 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import './StaticPages.css';
 
 const TermsOfService = () => {
   return (
-    <div className="static-page">
+    <>
+      <Helmet>
+        <title>Terms of Service | BizEaseAI</title>
+        <meta name="description" content="Read our terms of service to understand the rules and guidelines for using BizEaseAI's automation solutions and tools." />
+      </Helmet>
+      <div className="static-page">
       <div className="static-page-content">
         <h1>Terms of Service</h1>
         <p>Last updated: {new Date().toLocaleDateString()}</p>
@@ -60,8 +66,9 @@ const TermsOfService = () => {
           <h2>8. Changes to Terms</h2>
           <p>BizEaseAI reserves the right to revise these terms of service at any time without notice. By using this website, you are agreeing to be bound by the current version of these terms of service.</p>
         </section>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

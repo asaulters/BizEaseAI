@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import ToolCard from '../components/tools/ToolCard';
 import ToolModal from '../components/tools/ToolModal';
 import ContactForm from '../components/ContactForm';
@@ -41,64 +42,70 @@ const AIToolsPage = () => {
   };
 
   return (
-    <div className="ai-tools-page">
-      <section className="hero">
-        <div className="container">
-          <h1>The Best Tools to Streamline Your Business</h1>
-          <div className="cta-buttons">
-            <button 
-              className={`cta-button ${selectedCategory === 'Automation Tools' ? 'active' : ''}`}
-              onClick={() => handleCategorySelect('Automation Tools')}
-            >
-              Automation Tools
-            </button>
-            <button 
-              className={`cta-button ${selectedCategory === 'AI Tools' ? 'active' : ''}`}
-              onClick={() => handleCategorySelect('AI Tools')}
-            >
-              AI Tools
-            </button>
+    <>
+      <Helmet>
+        <title>AI & Automation Tools | BizEaseAI</title>
+        <meta name="description" content="Explore our curated collection of AI and automation tools to enhance your business efficiency. Find the perfect solutions for your automation needs." />
+      </Helmet>
+      <div className="ai-tools-page">
+        <section className="hero">
+          <div className="container">
+            <h1>The Best Tools to Streamline Your Business</h1>
+            <div className="cta-buttons">
+              <button 
+                className={`cta-button ${selectedCategory === 'Automation Tools' ? 'active' : ''}`}
+                onClick={() => handleCategorySelect('Automation Tools')}
+              >
+                Automation Tools
+              </button>
+              <button 
+                className={`cta-button ${selectedCategory === 'AI Tools' ? 'active' : ''}`}
+                onClick={() => handleCategorySelect('AI Tools')}
+              >
+                AI Tools
+              </button>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="tools-grid">
-        <div className="container">
-          <div className="tools-wrapper">
-            {!selectedCategory ? (
-              <div className="no-selection-message">
-                Choose tool type above!
-              </div>
-            ) : (
-              getDisplayedTools().map((tool, index) => (
-                <div
-                  id={`tool-${tool.name.toLowerCase()}`}
-                  key={index}
-                >
-                  <ToolCard
-                    tool={tool}
-                    onClick={() => handleToolClick(tool)}
-                  />
+        <section className="tools-grid">
+          <div className="container">
+            <div className="tools-wrapper">
+              {!selectedCategory ? (
+                <div className="no-selection-message">
+                  Choose tool type above!
                 </div>
-              ))
-            )}
+              ) : (
+                getDisplayedTools().map((tool, index) => (
+                  <div
+                    id={`tool-${tool.name.toLowerCase()}`}
+                    key={index}
+                  >
+                    <ToolCard
+                      tool={tool}
+                      onClick={() => handleToolClick(tool)}
+                    />
+                  </div>
+                ))
+              )}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {selectedTool && (
-        <ToolModal
-          tool={selectedTool}
-          onClose={() => setSelectedTool(null)}
-        />
-      )}
+        {selectedTool && (
+          <ToolModal
+            tool={selectedTool}
+            onClose={() => setSelectedTool(null)}
+          />
+        )}
 
-      <section className="contact-container">
-        <div className="container">
-          <ContactForm />
-        </div>
-      </section>
-    </div>
+        <section className="contact-container">
+          <div className="container">
+            <ContactForm />
+          </div>
+        </section>
+      </div>
+    </>
   );
 };
 
