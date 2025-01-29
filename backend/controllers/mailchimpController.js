@@ -56,8 +56,43 @@ const addSubscriber = async (req, res) => {
     // Generate MD5 hash of email manually
     const subscriberHash = createMd5Hash(email);
 
-    // Split category string into an array of tags
-    const tags = category.split(',').map(tag => tag.trim());
+    // Define standardized categories
+    const industryCategories = [
+      'Construction', 'Trades', 'Retail', 'Food and Beverage', 
+      'Health and Wellness', 'Real Estate', 'Professional Services', 
+      'Education and Training', 'Hospitality', 'Nonprofit', 
+      'Personal Services', 'Transportation and Logistics', 'Fitness', 
+      'Freelance and Solopreneur', 'Media and Entertainment'
+    ];
+
+    const generalCategories = [
+      'Sales Automations', 'Marketing Automations', 'Customer Engagement',
+      'Project Management', 'CRM Management', 'Data Management',
+      'Financial Management', 'HR', 'Ecom Management',
+      'Social Media Management', 'Customer Service', 'Event Management',
+      'Productivity', 'Document Management', 'Analytics and Reporting',
+      'Supply Chain Management'
+    ];
+
+    // Find the main category from the input category string
+    const findMainCategory = (categoryString) => {
+      // First check if any part of the category string matches a standardized category
+      const allCategories = [...industryCategories, ...generalCategories];
+      const categoryParts = categoryString.split(',').map(part => part.trim());
+      
+      for (const part of categoryParts) {
+        const match = allCategories.find(cat => 
+          cat.toLowerCase() === part.toLowerCase()
+        );
+        if (match) return match;
+      }
+      
+      // If no exact match, return the first category part
+      return categoryParts[0];
+    };
+
+    // Get the main category and use it as the only tag
+    const tags = [findMainCategory(category)];
 
     // Use PUT to create or update member in Mailchimp
     console.log('Setting list member...');
