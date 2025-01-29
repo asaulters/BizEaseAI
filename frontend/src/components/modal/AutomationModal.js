@@ -35,7 +35,7 @@ const AutomationModal = ({ automation, onClose }) => {
         body: JSON.stringify({
           firstName: name,
           email: email,
-          category: automation.category
+          category: automation.mainCategory
         })
       });
 
