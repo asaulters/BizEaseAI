@@ -9,6 +9,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import Automation101 from './pages/Automation101';
 import GoogleAnalytics from './components/Analytics/GoogleAnalytics';
+import FacebookPixel from './components/Analytics/FacebookPixel';
 import './App.css';
 
 // Error Boundary Component
@@ -67,6 +68,7 @@ function App() {
     <ErrorBoundary>
       <div className="App">
         <GoogleAnalytics />
+        <FacebookPixel />
         <Header />
         <main>
           <Routes>
