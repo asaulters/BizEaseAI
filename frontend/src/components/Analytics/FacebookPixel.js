@@ -6,8 +6,13 @@ const FacebookPixel = () => {
 
   useEffect(() => {
     // Track PageView on route changes
-    if (window.fbq) {
-      window.fbq('track', 'PageView');
+    try {
+      if (window.fbq) {
+        window.fbq('track', 'PageView');
+      }
+    } catch (error) {
+      // Silently handle errors when fbq is blocked
+      console.debug('Facebook Pixel tracking unavailable');
     }
   }, [location]);
 
