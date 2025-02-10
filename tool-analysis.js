@@ -1,37 +1,42 @@
-const data = require('./backend/seeders/general-automations.json');
+const fs = require('fs');
+const path = require('path');
 
-function extractTools() {
-    const tools = new Set();
-    
-    // Process each category
-    data.categories.forEach(category => {
-        // Get category name (first key in object)
-        const categoryName = Object.keys(category)[0];
-        const automations = category[categoryName];
+// Function to extract categories and titles from a JSON file
+function analyzeAutomations(filePath) {
+    try {
+        const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+        const categories = data.categories;
         
-        // Process each automation
-        automations.forEach(automation => {
-            // Add tools from main tools array
-            if (automation.tools) {
-                automation.tools.forEach(tool => tools.add(tool));
-            }
+        console.log(`\nAnalyzing: ${path.basename(filePath)}`);
+        console.log('----------------------------------------');
+        
+        categories.forEach(category => {
+            // Each category is an object with a single key (the category name)
+            const categoryName = Object.keys(category)[0];
+            const automations = category[categoryName];
             
-            // Add tools from steps
-            if (automation.steps) {
-                automation.steps.forEach(step => {
-                    if (step.tools) {
-                        step.tools.forEach(tool => tools.add(tool));
-                    }
-                });
-            }
+            console.log(`\nCategory: ${categoryName}`);
+            console.log('Automations:');
+            automations.forEach(automation => {
+                console.log(`  - ${automation.title}`);
+            });
         });
-    });
-    
-    // Convert Set to sorted array
-    return Array.from(tools).sort();
+    } catch (error) {
+        console.error(`Error processing ${filePath}:`, error.message);
+    }
 }
 
-const uniqueTools = extractTools();
-console.log('Unique Tools Used:');
-uniqueTools.forEach(tool => console.log(tool));
-console.log(`\nTotal number of unique tools: ${uniqueTools.length}`);
+// Analyze both files
+const files = [
+    path.join(__dirname, 'backend', 'seeders', 'data.json'),
+    path.join(__dirname, 'backend', 'seeders', 'general-automations.json')
+];
+
+console.log('Automation Analysis Tool');
+console.log('=======================');
+
+files.forEach(file => {
+    analyzeAutomations(file);
+});
+
+console.log('\nTo remove this analysis tool, simply delete the tool-analysis.js file.');
